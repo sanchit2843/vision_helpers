@@ -11,8 +11,6 @@ def frame_extract(path):
 
 def extract_specific_frame_from_video(video_path, frame_idx):
     cap = cv2.VideoCapture(video_path)
-    frame_count = cap.get(cv2.CAP_PROP_FRAME_COUNT)
-    frame_time = frame_idx / frame_count
-    cap.set(2, frame_time)
+    cap.set(1, frame_idx)
     ret, frame = cap.read()
     return frame
